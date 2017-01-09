@@ -68,8 +68,25 @@ namespace LINQ
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nClass Average Is: {0}", ClassGradeAverage);
             Console.ResetColor();
-            Console.ReadKey();
 
+
+        }
+        public void ReOrderStringOFLetter(string ReOrderString)      
+        {
+            string alphabetString;
+            alphabetString = ReOrderString.ToLower();
+            var display = 
+                from letter in alphabetString
+                orderby letter ascending
+                group letter by letter into list
+                select list;
+            Console.WriteLine("elephant --->");
+            foreach (var list in display)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("{0}{1}", list.Key, list.Count());
+                Console.ResetColor();        
+            }
 
 
 
