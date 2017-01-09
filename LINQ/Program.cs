@@ -25,10 +25,6 @@ namespace LINQ
             Console.WriteLine("\nFunction that Return a String in Alphabetically Order");
             Console.ResetColor();
             newFunction.ReOrderStringOFLetter("elephant");
-            //string alphabet = newFunction.ReOrderStringOFLetter("elephant");
-            //Console.ForegroundColor = ConsoleColor.Yellow;
-            //Console.WriteLine("elephant ---> {0}", alphabet);
-            //Console.ResetColor();
             Console.ReadKey();
         }
     }

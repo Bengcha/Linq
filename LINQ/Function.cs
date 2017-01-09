@@ -12,7 +12,6 @@ namespace LINQ
         {
             List<string> OldCarList = new List<string>();
             List<string> NewCarList;
-
             OldCarList.Add("GT-R");
             OldCarList.Add("Lamborghini");
             OldCarList.Add("Corvette");
@@ -31,7 +30,6 @@ namespace LINQ
                 Console.ResetColor();
             }
         }
-
         public void StudentGradeAverage()
         {
             List<string> StudentGrade = new List<string>();
@@ -48,7 +46,6 @@ namespace LINQ
                 {
                     var staticNumber = int.Parse(number);
                     StudentAveragGrade.Add(staticNumber);
-
                 }
                 var MinGrade = (from d in StudentAveragGrade select d).Min();
                 StudentAveragGrade.Remove(MinGrade);
@@ -58,9 +55,7 @@ namespace LINQ
                 GradeAverage.Add(NewAverage);
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Students Average Grade: {0}", NewAverage);
-
                 Console.ResetColor();
-
             }
             var StudentgradeCount = (from counting in GradeAverage select counting).Count();
             var ClassGradeOverAllSum = (from summing in GradeAverage select summing).Sum();
@@ -68,8 +63,6 @@ namespace LINQ
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nClass Average Is: {0}", ClassGradeAverage);
             Console.ResetColor();
-
-
         }
         public void ReOrderStringOFLetter(string ReOrderString)      
         {
@@ -87,10 +80,6 @@ namespace LINQ
                 Console.Write("{0}{1}", list.Key, list.Count());
                 Console.ResetColor();        
             }
-
-
-
-
         }
     }
 }
