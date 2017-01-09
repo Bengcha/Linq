@@ -26,7 +26,9 @@ namespace LINQ
             NewCarList = OldCarList.Distinct().ToList();
             foreach (string item in NewCarList)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(item);
+                Console.ResetColor();
             }
         }
 
@@ -38,8 +40,35 @@ namespace LINQ
             StudentGrade.Add("100,80,60,40,20,0");
             StudentGrade.Add("100,70,40,10,50,80");
 
-            List<string> Grade = new List<string>();
-            string[] value = StudentGrade.Split(',');
+            foreach (var gradeCalculation in StudentGrade)
+            {
+                List<int> StudentAveragGrade = new List<int>();
+                string[] words = gradeCalculation.Split(',');
+                foreach (string number in words)
+                {
+                    var staticNumber = int.Parse(number);
+                    StudentAveragGrade.Add(staticNumber);
+
+                }
+                var MinGrade = (from d in StudentAveragGrade select d).Min();
+                StudentAveragGrade.Remove(MinGrade);
+                var StudentPersonalGradeCount = (from personalGrade in StudentAveragGrade select personalGrade).Count();
+                var StudentGradeSum = (from personalGrade in StudentAveragGrade select personalGrade).Sum();
+                var NewAverage = (StudentGradeSum / StudentPersonalGradeCount);
+                GradeAverage.Add(NewAverage);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Students Average Grade: {0}", NewAverage);
+
+                Console.ResetColor();
+
+            }
+            var StudentgradeCount = (from counting in GradeAverage select counting).Count();
+            var ClassGradeOverAllSum = (from summing in GradeAverage select summing).Sum();
+            var ClassGradeAverage = (ClassGradeOverAllSum / StudentgradeCount);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nClass Average Is: {0}", ClassGradeAverage);
+            Console.ResetColor();
+            Console.ReadKey();
 
 
 
