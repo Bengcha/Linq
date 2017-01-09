@@ -57,8 +57,8 @@ namespace LINQ
                 Console.WriteLine("Students Average Grade: {0}%", NewAverage);
                 Console.ResetColor();
             }
-            var StudentgradeCount = (from counting in GradeAverage select counting).Count();
-            var ClassGradeOverAllSum = (from summing in GradeAverage select summing).Sum();
+            var StudentgradeCount = GradeAverage.Count();
+            var ClassGradeOverAllSum = GradeAverage.Sum();
             var ClassGradeAverage = (ClassGradeOverAllSum / StudentgradeCount);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nClass Average Grade: {0}%", ClassGradeAverage);
