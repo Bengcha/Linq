@@ -49,19 +49,19 @@ namespace LINQ
                 }
                 var MinGrade = (from d in StudentAveragGrade select d).Min();
                 StudentAveragGrade.Remove(MinGrade);
-                var StudentPersonalGradeCount = (from personalGrade in StudentAveragGrade select personalGrade).Count();
-                var StudentGradeSum = (from personalGrade in StudentAveragGrade select personalGrade).Sum();
+                var StudentPersonalGradeCount = StudentAveragGrade.Count();
+                var StudentGradeSum = StudentAveragGrade.Sum();
                 var NewAverage = (StudentGradeSum / StudentPersonalGradeCount);
                 GradeAverage.Add(NewAverage);
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Students Average Grade: {0}", NewAverage);
+                Console.WriteLine("Students Average Grade: {0}%", NewAverage);
                 Console.ResetColor();
             }
             var StudentgradeCount = (from counting in GradeAverage select counting).Count();
             var ClassGradeOverAllSum = (from summing in GradeAverage select summing).Sum();
             var ClassGradeAverage = (ClassGradeOverAllSum / StudentgradeCount);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nClass Average Is: {0}", ClassGradeAverage);
+            Console.WriteLine("\nClass Average Grade: {0}%", ClassGradeAverage);
             Console.ResetColor();
         }
         public void ReOrderStringOFLetter(string ReOrderString)      
